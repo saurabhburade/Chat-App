@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
+import Header from "./Header/Header";
 
 function App() {
     return (
-        <div>
-            <h1>hello World</h1>
-        </div>
-    )
+        <>
+            <Header />
+        </>
+    );
 }
 
-export default App
+export default App;

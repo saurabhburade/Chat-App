@@ -1,4 +1,4 @@
-import firebase from 'firebase';
+import firebase from './node_modules/firebase';
 const firebaseConfig = {
     apiKey: "AIzaSyDgfCdKbVc8blDf_gUSbJMLMPkoS1Aw360",
     authDomain: "slack-clone-test1.firebaseapp.com",

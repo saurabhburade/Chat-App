@@ -1,0 +1,20 @@
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1% 10%;
+    background-color: rgb(231, 231, 231);
+    text-align: center;
+}
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4em;
+    font-weight: 700;
+}
+.logo  > p {
+    margin: 0;
+    padding: 0;
+}
