@@ -23,6 +23,7 @@
     overflow: scroll;
     overflow-x: hidden;
     padding: 5%;
+    -webkit-appearance: none;
 }
 .chat-content-comtainer > div:nth-child(3) {
     margin-left: auto;
@@ -31,4 +32,16 @@
 .chat-view-foot {
     padding: 3% 5% 0% 5%;
     display: flex;
+}
+
+.chat-content-comtainer::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 0.5em;
+}
+.chat-content-comtainer::-webkit-scrollbar-track {
+    background-color: rgb(250, 248, 248);
+}
+.chat-content-comtainer::-webkit-scrollbar-thumb {
+    background-color: rgb(216, 216, 216);
+    height: 2em;
 }

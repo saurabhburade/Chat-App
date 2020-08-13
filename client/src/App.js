@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "./Header/Header";
-import Chat from "./Chat/Chat";
+import Header from "./Components/Header/Header";
+import Chat from "./Components/Chat/Chat";
 
 function App() {
     return (
