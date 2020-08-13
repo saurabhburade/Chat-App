@@ -18,3 +18,10 @@
     margin: 0;
     padding: 0;
 }
+.nav-links{
+    width: 25em;
+    display: flex;
+    justify-content: space-evenly;
+    font-weight: 500;
+    font-size: 1.1em;
+}

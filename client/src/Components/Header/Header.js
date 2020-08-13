@@ -1,5 +1,7 @@
 import React from "react";
 import "./Header.css";
+import {BrowserRouter as Router, Route, Link} from "react-router-dom";
+
 import {Input} from "antd";
 const {Search} = Input;
 
@@ -9,13 +11,17 @@ function Header() {
             <div className="logo">
                 <p>LOGO 🚀 </p>
             </div>
-            <div>
-                <Search
+            <div className="nav-links">
+                {/* <Search
                     placeholder="input search text"
                     size="medium"
                     onSearch={value => console.log(value)}
                     enterButton
-                />
+                /> */}
+                <Link to={"/"}>Home</Link>
+                <Link to={"/login"}>Login</Link>
+                <Link to={"/register"}>Sign Up</Link>
+                {/* <Link to={"/login"}>Login</Link> */}
             </div>
         </div>
     );
