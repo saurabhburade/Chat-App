@@ -1,0 +1,35 @@
+.chat-users-main {
+    width: 40em;
+    overflow: hidden;
+    /* padding: 2%; */
+}
+.chat-users-main > div:nth-child(1) {
+    /* height:70px; */
+    border-bottom: 1px solid gainsboro;
+    display: flex;
+    align-items: center;
+    margin: 5%;
+}
+
+.chat-users-container {
+    /* width: 30em; */
+    height: 90%;
+    padding: 5%;
+    padding-top: 2%;
+    /* margin: 2%; */
+    overflow: scroll;
+    /* background-color: black; */
+    overflow-x: hidden;
+    -webkit-appearance: none;
+}
+.chat-users-container::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 0.5em;
+}
+.chat-users-container::-webkit-scrollbar-track {
+    background-color: rgb(250, 248, 248);
+}
+.chat-users-container::-webkit-scrollbar-thumb {
+    background-color: rgb(216, 216, 216);
+    height: 2em;
+}

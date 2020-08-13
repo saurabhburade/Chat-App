@@ -1,0 +1,25 @@
+.chat-user-card {
+    width: 25em;
+    display: flex;
+    align-items: center;
+    
+    margin-bottom: 3%;
+    padding: 5%;
+    background-color: rgb(255, 255, 255);
+    justify-content: flex-start;
+    border-radius: 10px;
+    border: 1px solid rgb(233, 233, 233);
+    cursor: pointer;
+}
+.chat-user-card > div > p {
+    padding: 0;
+    margin: 0;
+}
+.chat-user-card > div {
+    /* background-color: blue; */
+    width: auto;
+    margin:2% 5%;
+}
+.chat-user-card > div:nth-child(1) p  {
+ font-size: 1.2em !important;
+}

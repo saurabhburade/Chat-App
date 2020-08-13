@@ -1,0 +1,15 @@
+.message-card{
+    background-color: rgb(255, 255, 255);
+    max-width: 25em;
+    padding: 2%;
+    margin: 2% 0%;
+    border-radius: 5px;
+    border-bottom-left-radius:0 ;
+    box-shadow: 0px 2px 10px rgb(238, 238, 238);
+    border: 1px solid rgb(230, 229, 229);
+    
+}
+.message-card > p{
+  
+    margin: 0;
+}
