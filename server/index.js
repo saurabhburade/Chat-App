@@ -6,6 +6,7 @@ const cors = require("cors");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const {uri, dbName} = require("./configs/db.config");
+const userRoutes=require('./routes/user.routes');
 mongoose.connect(uri, {dbName}, err => {
     if (err) {
         console.log("Mongoose conection error", err);
@@ -15,8 +16,11 @@ mongoose.connect(uri, {dbName}, err => {
     }
 });
 console.log(uri);
+app.use(express.json());
+
 app.use(cors());
 app.use(morgan());
+app.use("/api/",userRoutes)
 app.listen(PORT, err => {
     if (err) throw err;
     else console.log("Connected to PORT : ", PORT);
