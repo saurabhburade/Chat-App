@@ -20,11 +20,11 @@ const userSchema = new Schema(
             type: String,
             unique: true,
         },
+        chats: [String],
     },
     {
         timestamps: true,
-    },
-    
+    }
 );
 
 const User = mongoose.model("User", userSchema);

@@ -2,6 +2,7 @@ const router = require("express").Router();
 const User = require("../models/users.model");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const verifyJwt = require("./jwt.middleware");
 
 // Fetch all users
 router.get("/all-users", (req, res) => {
@@ -37,7 +38,7 @@ router.post("/register", (req, res) => {
                 newUser
                     .save()
                     .then(user => {
-                        doc.password = "";
+                        user.password = "";
                         res.status(200).json(user);
                         console.log(user);
                     })
@@ -78,34 +79,53 @@ router.post("/login", (req, res) => {
 });
 
 // fetch profile
-
+router.use(verifyJwt);
 router.get("/user", (req, res) => {
     const {token} = req.headers;
-
-    //verify jwt
-    jwt.verify(token, process.env.JWT_SECRET, (err, verifiedJwt) => {
-        console.log(err, verifiedJwt);
-        if (err) {
-            res.status(400).json({Error: "Invalid Token"});
-        } else {
-            User.findOne({token})
-                .then(doc => {
-                    if (doc) {
-                        doc.password = "";
-                        res.status(200).json(doc);
-                    } else {
-                        res.status(404).json({Error: "User Not Found"});
-                    }
-                })
-                .catch(err => {
-                    console.log(err);
-                    res.status(400).json({Error: "Something went wrong"});
-                });
-        }
-    });
+    User.findOne({token})
+        .then(doc => {
+            if (doc) {
+                doc.password = "";
+                res.status(200).json(doc);
+            } else {
+                res.status(404).json({Error: "User Not Found"});
+            }
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(400).json({Error: "Something went wrong"});
+        });
 });
 
+//user profile update
 
+// add chats
+router.post("/chat/add", (req, res) => {
+    const {token} = req.headers;
+    const {chat} = req.body;
+    User.findOne({token})
+        .then(doc => {
+            if (doc) {
+                // console.log(doc);
+                console.log(doc.chats.includes(chat));
+                if (!doc.chats.includes(chat)) {
+                    doc.chats = [...doc.chats, chat];
 
+                    doc.save().then(user => {
+                        doc.password = "";
+                        res.status(200).json(doc.chats);
+                    });
+                } else {
+                    res.status(400).json({Error: "Already in chat list"});
+                }
+            } else {
+                res.status(404).json({Error: "User Not Found"});
+            }
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(400).json({Error: "Something went wrong"});
+        });
+});
 
 module.exports = router;
