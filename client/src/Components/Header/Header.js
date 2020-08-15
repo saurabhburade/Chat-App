@@ -1,12 +1,17 @@
 import React from "react";
 import "./Header.css";
 import {BrowserRouter as Router, Route, Link} from "react-router-dom";
+import {LoginOutlined} from "@ant-design/icons";
 
-import {Input} from "antd";
+import {Input, Button} from "antd";
 import {isAuth} from "./../../utils/auth";
 const {Search} = Input;
 
 function Header() {
+    const handleLogout=()=>{
+        localStorage.clear();
+        window.location.href="/login"
+    }
     return (
         <div className="header">
             <div className="logo">
@@ -21,7 +26,11 @@ function Header() {
                 /> */}
                 <Link to={"/"}>Home</Link>
                 {isAuth() ? (
-                    <Link to={"/chat"}>Chat</Link>
+                    <>
+                        <Link to={"/chat"}>Chat</Link>
+                        <Link onClick={handleLogout} to={"/login"}>Logout</Link>
+                       
+                    </>
                 ) : (
                     <>
                         <Link to={"/login"}>Login</Link>
