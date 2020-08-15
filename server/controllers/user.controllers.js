@@ -20,6 +20,7 @@ const register = (req, res) => {
                     token,
                     email,
                     password: hash,
+                    chats:[]
                 });
                 console.log(newUser);
                 newUser
