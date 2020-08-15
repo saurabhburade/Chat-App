@@ -3,15 +3,37 @@ import "./SignUp.css";
 import {Input} from "antd";
 import {Button} from "react-bootstrap";
 import loginImage from "../../assets/undraw_status_update_jjgk.svg";
+import {signup} from "../../utils/auth";
+import {isAuth} from "../../utils/auth";
+import {Redirect} from "react-router-dom";
 
 function SignUp() {
-    const handleLogin = e => {
+    const handleSignUp = e => {
         e.preventDefault();
         console.log("login", e.target.email.value);
+        const data = {
+            fname: e.target.fname.value,
+            lname: e.target.lname.value,
+            email: e.target.email.value,
+            confPassword: e.target.confPassword.value,
+            password: e.target.password.value,
+        };
+        console.log(data);
+        if (
+            !!data.fname.trim() &&
+            !!data.lname.trim() &&
+            !!data.password.trim() &&
+            data.password === data.confPassword
+        ) {
+            signup(data);
+        }
     };
+    if (isAuth()) {
+        return <Redirect to="/chat" />;
+    }
     return (
         <div className="login-container">
-            <form className="form" onSubmit={handleLogin}>
+            <form className="form" onSubmit={handleSignUp}>
                 <div>
                     <label htmlFor="fname">First Name</label>
                     <Input type="text" name="fname" required />

@@ -2,12 +2,22 @@ import React from "react";
 import "./Login.css";
 import {Input} from "antd";
 import {Button} from "react-bootstrap";
-import loginImage from "../../assets/undraw_status_update_jjgk.svg"
+import loginImage from "../../assets/undraw_status_update_jjgk.svg";
+import {login, isAuth} from "./../../utils/auth";
+import { Redirect } from 'react-router-dom';
 function Login() {
     const handleLogin = e => {
         e.preventDefault();
         console.log("login", e.target.email.value);
+        const data = {
+            email: e.target.email.value,
+            password: e.target.password.value,
+        };
+        login(data);
     };
+    if (isAuth()) {
+        return <Redirect to="/chat" />;
+    }
     return (
         <div className="login-container">
             <form className="form" onSubmit={handleLogin}>
