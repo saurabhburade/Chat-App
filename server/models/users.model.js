@@ -20,7 +20,17 @@ const userSchema = new Schema(
             type: String,
             unique: true,
         },
-        chats: [String],
+        chats: [
+            {
+                id: {
+                    type: String,
+                    unique:true
+                },
+                type: {
+                    type: String,
+                },
+            },
+        ],
     },
     {
         timestamps: true,

@@ -20,7 +20,7 @@ const register = (req, res) => {
                     token,
                     email,
                     password: hash,
-                    chats:[]
+                    chats: [],
                 });
                 console.log(newUser);
                 newUser
@@ -63,16 +63,25 @@ const login = (req, res) => {
             console.log(err);
             res.status(400).json({Error: "Something went wrong"});
         });
-}
-
+};
 
 const allUsers = (req, res) => {
-    User.find()
-        .then(docs => {
-            res.status(200).json(docs);
+    const {email} = req.headers;
+    console.log(req.body, req.headers);
+    User.findOne({email})
+        .then(doc => {
+            console.log(doc);
+            res.status(200).json({
+                username: doc.fname + " " + doc.lname,
+                email,
+                _id: doc._id,
+            });
+            res.end();
         })
         .catch(err => {
-            res.status(400).json(err);
+            console.log(err);
+            res.status(404).json({error: "User not found"});
+            res.end();
         });
 };
 const fetchUser = (req, res) => {
@@ -94,12 +103,17 @@ const fetchUser = (req, res) => {
 const addChat = (req, res) => {
     const {token} = req.headers;
     const {chat} = req.body;
+    console.log(req.body);
     User.findOne({token})
         .then(doc => {
             if (doc) {
                 // console.log(doc);
-                console.log(doc.chats.includes(chat));
-                if (!doc.chats.includes(chat)) {
+                console.log();
+                const present = doc.chats.find(element => {
+                    return element.id === chat.id;
+                });
+                console.log(present);
+                if (!present) {
                     doc.chats = [...doc.chats, chat];
 
                     doc.save().then(user => {

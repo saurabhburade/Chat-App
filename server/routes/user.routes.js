@@ -9,8 +9,7 @@ const {
     addChat,
 } = require("../controllers/user.controllers");
 
-// Fetch all users
-router.get("/all-users", allUsers);
+
 
 //register user
 router.post("/register", register);
@@ -20,6 +19,9 @@ router.post("/login", login);
 
 //jwt verification middleware
 router.use(verifyJwt);
+
+// Fetch all users
+router.get("/all-users", allUsers);
 
 // fetch profile
 router.get("/user", fetchUser);
