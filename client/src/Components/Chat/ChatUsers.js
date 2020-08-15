@@ -2,6 +2,7 @@ import React from "react";
 import ChatUserCard from "./ChatUserCard";
 import {Input} from "antd";
 import "./chatUsers.css";
+import SearchUser from './../SearchUser/SearchUser';
 
 const {Search} = Input;
 
@@ -9,12 +10,7 @@ function ChatUsers() {
     return (
         <div className="chat-users-main">
             <div>
-                <Search
-                    placeholder="input search text"
-                    size="medium"
-                    onSearch={value => console.log(value)}
-                    enterButton
-                />
+                <SearchUser />
             </div>
             <div className="chat-users-container">
                 <ChatUserCard />
