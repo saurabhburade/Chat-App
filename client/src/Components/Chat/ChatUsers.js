@@ -1,28 +1,42 @@
-import React from "react";
+import React, {useEffect} from "react";
 import ChatUserCard from "./ChatUserCard";
 import {Input} from "antd";
 import "./chatUsers.css";
-import SearchUser from './../SearchUser/SearchUser';
+import SearchUser from "./../SearchUser/SearchUser";
+import {connect} from "react-redux";
+import {fetchChats} from "./../../Redux/Chat/chat.actionCreators";
 
 const {Search} = Input;
 
-function ChatUsers() {
+function ChatUsers(props) {
+    useEffect(() => {
+        props.fetchChats();
+        console.log("object", props.chatList);
+    }, []);
     return (
         <div className="chat-users-main">
             <div>
                 <SearchUser />
             </div>
             <div className="chat-users-container">
-                <ChatUserCard />
-                <ChatUserCard />
-                <ChatUserCard />
-                <ChatUserCard />
-                <ChatUserCard />
-                <ChatUserCard />
-                <ChatUserCard />
+                {props.chatList.map((element, index) => {
+                    return (
+                        <ChatUserCard
+                            title={element.title}
+                            id={element.id}
+                        />
+                    );
+                })}
             </div>
         </div>
     );
 }
+const mapStateToProps = state => ({
+    chatList: state.chatList,
+});
 
-export default ChatUsers;
+const mapDispatchToProps = dispatch => ({
+    fetchChats: () => dispatch(fetchChats()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ChatUsers);

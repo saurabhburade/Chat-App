@@ -1,22 +1,33 @@
-import React from 'react'
-import "./chatUserCard.css"
-import Avatar from 'antd/lib/avatar/avatar';
+import React from "react";
+import "./chatUserCard.css";
+import Avatar from "antd/lib/avatar/avatar";
 import {UserOutlined} from "@ant-design/icons";
+import { connect } from 'react-redux';
+import { setChatActiveUser } from './../../Redux/Chat/chat.actionCreators';
 
-function ChatUserCard() {
+function ChatUserCard({title, id, setChatActiveUser}) {
+    const setActiveUser = () => {
+        
+        setChatActiveUser({title, id});
+    };
+
     return (
-        <div className="chat-user-card">
+        <div className="chat-user-card" onClick={setActiveUser}>
             <div>
                 <Avatar size="large">
-                    <p>J</p>
+                    <p>{title[0]}</p>
                 </Avatar>
             </div>
             <div>
-                <p>John Doe</p>
-                <p>Message Here</p>
+                <p>{title}</p>
             </div>
         </div>
     );
 }
 
-export default ChatUserCard
+
+const mapDispatchToProps = dispatch=>({
+    setChatActiveUser:(payload)=>{dispatch(setChatActiveUser(payload))}
+})
+
+export default connect(null,mapDispatchToProps)(ChatUserCard);
