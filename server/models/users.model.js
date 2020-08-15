@@ -24,11 +24,12 @@ const userSchema = new Schema(
             {
                 id: {
                     type: String,
-                    unique:true
+                    // unique:true
                 },
                 type: {
                     type: String,
                 },
+                title: {type: String, required: true},
             },
         ],
     },
