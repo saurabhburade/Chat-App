@@ -12,6 +12,11 @@
 .message-card > p{
   
     margin: 0;
+    width: auto;
+    height:100% ;
+    text-overflow: clip;
+    word-wrap: break-word;
+    overflow: hidden;
 }
 .usermessage{
     margin-left: auto;

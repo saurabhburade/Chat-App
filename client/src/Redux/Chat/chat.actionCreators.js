@@ -1,4 +1,8 @@
-import {FETCH_CHATS_FAIL, SET_CHAT_ACTIVE_USER, FETCH_USER_SUCCESS} from "./chat.actionTypes";
+import {
+    FETCH_CHATS_FAIL,
+    SET_CHAT_ACTIVE_USER,
+    FETCH_USER_SUCCESS,
+} from "./chat.actionTypes";
 import {FETCH_CHATS_SUCCESS} from "./chat.actionTypes";
 import Axios from "axios";
 
@@ -67,5 +71,22 @@ function fetchUserSuccess(payload) {
     return {
         type: FETCH_USER_SUCCESS,
         payload: payload,
+    };
+}
+export function addChat(payload) {
+    return dispatch => {
+        Axios.post("http://localhost:8000/api/chat/add",{chat:payload}, {
+            headers: {
+                token: localStorage.getItem("token"),
+                "Content-Type": "application/json",
+            },
+        })
+            .then(user => {
+                console.log(user);
+                dispatch(fetchChats());
+            })
+            .catch(err => {
+                console.log(err);
+            });
     };
 }

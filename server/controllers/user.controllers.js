@@ -104,25 +104,42 @@ const addChat = (req, res) => {
     const {token} = req.headers;
     const {chat} = req.body;
     console.log(req.body);
-    User.findOne({token})
-        .then(doc => {
-            if (doc) {
-                // console.log(doc);
-                console.log();
-                const present = doc.chats.find(element => {
-                    return element.id === chat.id;
-                });
-                console.log(present);
-                if (!present) {
-                    doc.chats = [...doc.chats, chat];
+    Promise.all([User.findOne({token}), User.findOne({_id: chat.user})])
 
-                    doc.save().then(user => {
-                        doc.password = "";
-                        res.status(200).json(doc.chats);
+        .then(docs => {
+            console.log("###################################", docs);
+            if (!!docs) {
+                // console.log(doc);
+                docs.forEach((doc, index) => {
+                    const present = doc.chats.find(element=> {
+                        return element.id === chat.id;
                     });
-                } else {
-                    res.status(400).json({Error: "Already in chat list"});
-                }
+                    console.log(present);
+                    if (!present) {
+                        if (index === 0 && chat.type == "personal") {
+                            chat.title = docs[1].fname + " " + docs[1].lname;
+                            doc.chats = [...doc.chats, chat];
+                            doc.save().then(user => {
+                                doc.password = "";
+                            });
+                        } else {
+                            chat.title =
+                                docs[index - 1].fname +
+                                " " +
+                                docs[index - 1].lname;
+                            doc.chats = [...doc.chats, chat];
+                            doc.save().then(user => {
+                                doc.password = "";
+                            });
+                        }
+                    } else {
+                        res.status(400).json({
+                            Error: "Already in chat list",
+                        });
+                    }
+                });
+
+                res.status(200).json("succcess");
             } else {
                 res.status(404).json({Error: "User Not Found"});
             }

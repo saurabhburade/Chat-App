@@ -74,7 +74,7 @@ function ChatView({activeChat, user}) {
                 style={{
                     alignItems: "center",
                     justifyContent: "center",
-                    minHeight: "90vh",
+                   
                 }}
             >
                 <img src={chatImage} alt="" />
