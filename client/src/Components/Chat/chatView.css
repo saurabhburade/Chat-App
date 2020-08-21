@@ -4,9 +4,10 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-min-height: 90vh;
-    
+    min-height: 90vh;
+
 }
+
 .chat-view-head {
     background-color: rgb(234, 251, 255);
     padding: 2% 5%;
@@ -16,10 +17,12 @@ min-height: 90vh;
     font-weight: 600;
     display: flex;
 }
-.chat-view-head > p {
+
+.chat-view-head>p {
     margin: 0 2%;
     padding: 0;
 }
+
 .chat-content-comtainer {
     height: 100%;
     overflow: scroll;
@@ -27,25 +30,28 @@ min-height: 90vh;
     padding: 5%;
     -webkit-appearance: none;
     scroll-behavior: smooth;
-    
+
 }
 
 .chat-view-foot {
     padding: 3% 5% 0% 5%;
-    display: flex;
+  
 }
 
 .chat-content-comtainer::-webkit-scrollbar {
     -webkit-appearance: none;
     width: 0.5em;
 }
+
 .chat-content-comtainer::-webkit-scrollbar-track {
     background-color: rgb(250, 248, 248);
 }
+
 .chat-content-comtainer::-webkit-scrollbar-thumb {
     background-color: rgb(216, 216, 216);
     height: 2em;
 }
-.chat-view > img {
+
+.chat-view>img {
     width: 50%;
 }

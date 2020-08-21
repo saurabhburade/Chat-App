@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^7.1.2",
     "antd": "^4.5.4",
     "axios": "^0.19.2",
+    "b64-to-blob": "^1.2.19",
     "bootstrap": "^4.5.2",
     "email-validator": "^2.0.4",
     "firebase": "^7.18.0",

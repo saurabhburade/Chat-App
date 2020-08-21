@@ -4,8 +4,9 @@
     justify-content: space-between;
     align-items: center;
     padding: 1% 10%;
-    background-color: rgb(231, 231, 231);
+    background-color: rgb(255, 255, 255);
     text-align: center;
+    border-bottom: 1px solid rgb(241, 241, 241);
 }
 .logo {
     display: flex;
@@ -22,6 +23,10 @@
     width: 25em;
     display: flex;
     justify-content: space-evenly;
-    font-weight: 500;
     font-size: 1.1em;
+    
+}
+.navLink{
+    font-weight: 550;
+    color: rgb(23, 23, 99) !important;
 }

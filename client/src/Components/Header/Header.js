@@ -24,17 +24,30 @@ function Header() {
                     onSearch={value => console.log(value)}
                     enterButton
                 /> */}
-                <Link to={"/"}>Home</Link>
+                <Link className="navLink" to={"/"}>
+                    Home
+                </Link>
                 {isAuth() ? (
                     <>
-                        <Link to={"/chat"}>Chat</Link>
-                        <Link onClick={handleLogout} to={"/login"}>Logout</Link>
-                       
+                        <Link className="navLink" to={"/chat"}>
+                            Chat
+                        </Link>
+                        <Link
+                            className="navLink"
+                            onClick={handleLogout}
+                            to={"/login"}
+                        >
+                            Logout
+                        </Link>
                     </>
                 ) : (
                     <>
-                        <Link to={"/login"}>Login</Link>
-                        <Link to={"/register"}>Sign Up</Link>
+                        <Link className="navLink" to={"/login"}>
+                            Login
+                        </Link>
+                        <Link className="navLink" to={"/register"}>
+                            Sign Up
+                        </Link>
                     </>
                 )}
 
