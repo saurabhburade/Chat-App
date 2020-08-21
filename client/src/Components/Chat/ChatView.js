@@ -25,13 +25,13 @@ function ChatView({activeChat, user}) {
     const handleMessageChange = e => {
         setMessage(e.target.value);
     };
-    const sendMessage = async e => {
+    const sendMessage =  e => {
         console.log(
             "e",
             message,
-            (!!message || !!(await attachment.url)) && activeChat?.id
+            (!!message || !!( attachment.url)) && activeChat?.id
         );
-        if ((!!message || !!(await attachment.url)) && activeChat?.id) {
+        if ((!!message || !!( attachment.url)) && activeChat?.id) {
             const date = new Date().toString();
             console.log(date);
             const keyRef = db
@@ -52,16 +52,7 @@ function ChatView({activeChat, user}) {
             })
            
         }
-        // setMessagesData([...messagesData,message])
-        // db.collection("chat-test").add({
-        //     username:"Max",
-        //     message:"Hello max"
-        // })
 
-        console
-            .log
-            // db.collection("/chat-test/Tb8urFphACRfazzsfoev/messages_data")
-            ();
     };
     useEffect(() => {
         if (activeChat?.id) {

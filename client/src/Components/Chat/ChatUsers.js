@@ -5,6 +5,7 @@ import "./chatUsers.css";
 import SearchUser from "./../SearchUser/SearchUser";
 import {connect} from "react-redux";
 import {fetchChats} from "./../../Redux/Chat/chat.actionCreators";
+import db from "../../utils/firebase";
 
 const {Search} = Input;
 
@@ -12,6 +13,7 @@ function ChatUsers(props) {
     useEffect(() => {
         props.fetchChats();
         console.log("object", props.chatList);
+      
     }, []);
     return (
         <div className="chat-users-main">

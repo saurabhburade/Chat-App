@@ -40,7 +40,7 @@ function MessageCard({username, content, user, attachment}) {
                     />
                 ) : attachment?.type  ? (
                     <div className="file d-flex justify-content-between align-items-center">
-                        <p>{attachment.type.split("/")[0]} File</p>
+                        <p>{attachment.type.split("/")[0]}/document File</p>
                         <a href={attachment.url} download>
                             <Button
                                 type="primary"

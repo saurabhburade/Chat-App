@@ -1,6 +1,7 @@
 .chat-users-main {
     width: 40em;
     overflow: hidden;
+    background-color: rgba(250, 250, 250, 0.849);
     /* padding: 2%; */
 }
 .chat-users-main > div:nth-child(1) {
