@@ -7,6 +7,8 @@ const morgan = require("morgan");
 const mongoose = require("mongoose");
 const {uri, dbName} = require("./configs/db.config");
 const userRoutes=require('./routes/user.routes');
+const path = require("path");
+
 mongoose.connect(uri, {useUnifiedTopology: true, dbName}, err => {
     if (err) {
         console.log("Mongoose conection error", err);
