@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "./Header.css";
 import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 import {LoginOutlined} from "@ant-design/icons";
@@ -8,12 +8,22 @@ import {isAuth} from "./../../utils/auth";
 const {Search} = Input;
 
 function Header() {
+    const [Scroll, setScroll] = useState(false)
     const handleLogout=()=>{
         localStorage.clear();
         window.location.href="/login"
     }
+         {!!window && window.addEventListener(
+             "scroll",
+             () => {
+                 if (parseInt(window.scrollY) >= 10) {
+                     setScroll(true);
+                 } else {
+                     setScroll(false);
+                 }
+             })}
     return (
-        <div className="header">
+        <div className={`header ${Scroll?"sticky":""}`}>
             <div className="logo">
                 <p>LOGO 🚀 </p>
             </div>

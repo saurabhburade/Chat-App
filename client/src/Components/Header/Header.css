@@ -7,6 +7,8 @@
     background-color: rgb(255, 255, 255);
     text-align: center;
     border-bottom: 1px solid rgb(241, 241, 241);
+
+    transition-duration: 500ms;
 }
 .logo {
     display: flex;
@@ -15,18 +17,24 @@
     font-size: 1.4em;
     font-weight: 700;
 }
-.logo  > p {
+.logo > p {
     margin: 0;
     padding: 0;
 }
-.nav-links{
+.nav-links {
     width: 25em;
     display: flex;
     justify-content: space-evenly;
     font-size: 1.1em;
-    
 }
-.navLink{
+.navLink {
     font-weight: 550;
     color: rgb(23, 23, 99) !important;
+}
+.sticky {
+    transition-duration: 500ms;
+
+    position: fixed;
+    z-index: 9999;
+    background: white;
 }
