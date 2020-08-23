@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 import {LoginOutlined} from "@ant-design/icons";
 
 import {Input, Button} from "antd";
-import {isAuth} from "./../../utils/auth";
+import {isAuth} from "../../Utils/auth";
 const {Search} = Input;
 
 function Header() {

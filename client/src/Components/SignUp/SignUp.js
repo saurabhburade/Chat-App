@@ -3,8 +3,8 @@ import "./SignUp.css";
 import {Input} from "antd";
 import {Button} from "react-bootstrap";
 import loginImage from "../../assets/undraw_status_update_jjgk.svg";
-import {signup} from "../../utils/auth";
-import {isAuth} from "../../utils/auth";
+import {signup} from "../../Utils/auth";
+import {isAuth} from "../../Utils/auth";
 import {Redirect} from "react-router-dom";
 
 function SignUp() {

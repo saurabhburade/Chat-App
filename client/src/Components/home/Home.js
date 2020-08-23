@@ -5,7 +5,7 @@ import "./home.css";
 import {Button} from "react-bootstrap";
 import {Steps, Tooltip,Button as AntButton} from "antd";
 import {Link} from "react-router-dom";
-import {isAuth} from "./../../utils/auth";
+import {isAuth} from "../../Utils/auth";
 import reactIcon from "../../assets/reactjs.svg"
 import reduxIcon from "../../assets/redux.svg";
 import nodeIcon from "../../assets/nodejs.svg";

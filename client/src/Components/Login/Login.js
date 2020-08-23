@@ -3,7 +3,7 @@ import "./Login.css";
 import {Input} from "antd";
 import {Button} from "react-bootstrap";
 import loginImage from "../../assets/undraw_status_update_jjgk.svg";
-import {login, isAuth} from "./../../utils/auth";
+import {login, isAuth} from "../../Utils/auth";
 import { Redirect } from 'react-router-dom';
 function Login() {
     const handleLogin = e => {

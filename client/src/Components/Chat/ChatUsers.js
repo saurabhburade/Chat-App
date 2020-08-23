@@ -5,7 +5,7 @@ import "./chatUsers.css";
 import SearchUser from "./../SearchUser/SearchUser";
 import {connect} from "react-redux";
 import {fetchChats} from "./../../Redux/Chat/chat.actionCreators";
-import db from "../../utils/firebase";
+import db from "../../Utils/firebase";
 
 const {Search} = Input;
 

@@ -4,7 +4,7 @@ import Chat from "./Components/Chat/Chat";
 import {BrowserRouter as Router, Route, Link, Switch} from "react-router-dom";
 import Login from "./Components/Login/Login";
 import SignUp from "./Components/SignUp/SignUp";
-import {isAuth} from "./utils/auth";
+import {isAuth} from "./Utils/auth";
 import {connect} from "react-redux";
 import {fetchUser} from "./Redux/Chat/chat.actionCreators";
 import Home from "./Components/home/Home";

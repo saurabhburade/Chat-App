@@ -6,7 +6,7 @@ import axios from "axios";
 import * as EmailValidator from "email-validator";
 import Modal from "antd/lib/modal/Modal";
 import {connect} from "react-redux";
-import db from "./../../utils/firebase";
+import db from "../../Utils/firebase";
 import {addChat} from "./../../Redux/Chat/chat.actionCreators";
 
 const SearchUser = ({chatList, user, chatAdd}) => {

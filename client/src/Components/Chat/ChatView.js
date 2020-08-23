@@ -9,7 +9,7 @@ import {Button} from "react-bootstrap";
 import {connect} from "react-redux";
 import chatImage from "../../assets/undraw_status_update_jjgk.svg";
 import {useEffect} from "react";
-import db from "./../../utils/firebase";
+import db from "../../Utils/firebase";
 import {useState} from "react";
 import PicturesWall from "../ImageUpload/ImageUpload";
 import firebase from "firebase";
