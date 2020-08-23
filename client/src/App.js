@@ -7,19 +7,24 @@ import SignUp from "./Components/SignUp/SignUp";
 import {isAuth} from "./utils/auth";
 import {connect} from "react-redux";
 import {fetchUser} from "./Redux/Chat/chat.actionCreators";
+import Home from "./Components/home/Home";
+import "./App.css";
 function App(props) {
     if (isAuth()) {
         props.fetchUser();
     }
     return (
         <Router>
-            <Header />
-            {/* <Chat /> */}
-            <Switch>
-                <Route path="/login" exact component={Login} />
-                <Route path="/register" exact component={SignUp} />
-                <Route path="/chat" exact component={Chat} />
-            </Switch>
+            <div className="App">
+                <Header />
+                {/* <Chat /> */}
+                <Switch>
+                    <Route path="/login" exact component={Login} />
+                    <Route path="/" exact component={Home} />
+                    <Route path="/register" exact component={SignUp} />
+                    <Route path="/chat" exact component={Chat} />
+                </Switch>
+            </div>
         </Router>
     );
 }
