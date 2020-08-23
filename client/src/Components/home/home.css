@@ -94,3 +94,48 @@
 .tech-cont {
     padding: 5%;
 }
+@media (max-width: 700px) {
+    .hero-image-cont {
+        /* width: 100%; */
+        display: none;
+    }
+    .hero-container {
+        padding: 1%;
+        height: 70vh;
+        width: 100%;
+        background-position: 0% 100%;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+    .hero-text > p:nth-child(1) {
+        /* background: orange; */
+        padding: 0em;
+        margin: 0em;
+        font-weight: 800;
+        font-size: 2em;
+    }    .hero-text > p:nth-child(2) {
+        /* background: orange; */
+        width: 100%;
+        padding: 2%;
+        margin: 0em;
+        font-weight: 800;
+        font-size: 0.9em;
+    }
+    .hero-text {
+        width: auto;
+        text-align: center;
+    }
+    .action-btns{
+        transform:scale(0.9);
+        padding: 0px;
+  
+        
+    }
+    .chat-screen {
+    width: 60em;
+    box-shadow: 0px 1px 50px rgb(240, 240, 240);
+    border-radius: 5px;
+    display: none;
+}
+}

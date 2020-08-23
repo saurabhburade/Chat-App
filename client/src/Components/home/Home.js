@@ -111,7 +111,7 @@ function Home() {
             </div>{" "}
             <div className="steps tech-cont">
                 <h3>Technologies Used</h3>
-                <div className="d-flex align-items-center justify-content-center wow  animate__animated animate__fadeInUpwow  animate__animated animate__fadeInUp">
+                <div className="d-flex align-items-center justify-content-center flex-wrap wow  animate__animated animate__fadeInUpwow  animate__animated animate__fadeInUp">
                     <Tooltip placement="bottom" title="ReactJS">
                         <div className="tech-icons-cont wow  animate__animated animate__fadeInUp">
                             <img src={reactIcon} alt="" />
