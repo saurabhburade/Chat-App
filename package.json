@@ -1,12 +1,13 @@
 {
-  "name": "chattingApp",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+    "name": "chattingApp",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "cd server && npm install && node index.js",
+        "heroku-postbuild": "cd server && npm install && cd .. && cd client && npm install && npm run build"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
 }
