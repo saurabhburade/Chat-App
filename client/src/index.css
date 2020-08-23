@@ -3,7 +3,7 @@
     font-family: 'Poppins', sans-serif;
     margin: 0em;
     padding: 0em;
-    transition-duration: 400ms;
+    transition-duration: 10ms;
 }
 *::-webkit-scrollbar {
     -webkit-appearance: none;
