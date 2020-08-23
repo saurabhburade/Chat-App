@@ -20,7 +20,7 @@
     align-items: center;
     background: url("../../assets/wave.svg") no-repeat;
     /* background-size: 100em; */
-    background-position: bottom;
+    background-position: 0% 120%;
 }
 .hero-image-cont {
     /* width: 100%; */
@@ -79,4 +79,18 @@
     width: 60em;
     box-shadow: 0px 1px 50px rgb(240, 240, 240);
     border-radius: 5px;
+}
+.tech-icons-cont{
+    width: 10em;
+    /* background: orange; */
+    margin: 0% 2%;
+}
+.tech-icons-cont > img{
+    width: 5em;
+    filter: grayscale();
+}
+.tech-cont > h3{
+    padding-bottom: 3%;
+}.tech-cont {
+    padding: 5%;
 }

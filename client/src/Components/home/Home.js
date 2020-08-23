@@ -3,10 +3,18 @@ import image from "../../assets/chat1.svg";
 import chatimage from "../../assets/chat1.JPG";
 import "./home.css";
 import {Button} from "react-bootstrap";
-import {Steps} from "antd";
-import { Link } from 'react-router-dom';
-import { isAuth } from './../../utils/auth';
-
+import {Steps, Tooltip,Button as AntButton} from "antd";
+import {Link} from "react-router-dom";
+import {isAuth} from "./../../utils/auth";
+import reactIcon from "../../assets/reactjs.svg"
+import reduxIcon from "../../assets/redux.svg";
+import nodeIcon from "../../assets/nodejs.svg";
+import expreeIcon from "../../assets/express.svg";
+import mongoIcon from "../../assets/mongo.svg";
+import bootstrapIcon from "../../assets/bootstrap.svg";
+import antIcon from "../../assets/ant.svg";
+import firebaseIcon from "../../assets/firebase.svg";
+import {GithubOutlined} from "@ant-design/icons";
 const {Step} = Steps;
 function Home() {
     return (
@@ -20,18 +28,21 @@ function Home() {
                         This project is developed by Saurabh Burade.
                     </p>
                     <div className="action-btns d-flex mt-3">
-                        {isAuth()?null:<>
-                        
-                        <Link to="/login">
-                            {" "}
-                            <Button size="sm p-2 pl-5 pr-5">Login</Button>
-                        </Link>
-                        <Link to="/register">
-                            <Button size="sm p-2 ml-5 pl-5 pr-5">
-                                Sign Up
-                            </Button>
-                        </Link>
-                        </>}
+                        {isAuth() ? null : (
+                            <>
+                                <Link to="/login">
+                                    {" "}
+                                    <Button size="sm p-2 pl-5 pr-5">
+                                        Login
+                                    </Button>
+                                </Link>
+                                <Link to="/register">
+                                    <Button size="sm p-2 ml-5 pl-5 pr-5">
+                                        Sign Up
+                                    </Button>
+                                </Link>
+                            </>
+                        )}
                     </div>
                 </div>
                 <div className="hero-image-cont">
@@ -91,7 +102,79 @@ function Home() {
                         <img className="chat-screen" src={chatimage} alt="" />
                     </div>
                 </div>
+            </div>{" "}
+            <div className="steps tech-cont">
+                <h3>Technologies Used</h3>
+                <div className="d-flex align-items-center justify-content-center">
+                    <Tooltip placement="bottom" title="ReactJS">
+                        <div className="tech-icons-cont">
+                            <img src={reactIcon} alt="" />
+                        </div>
+                    </Tooltip>
+                    <Tooltip placement="bottom" title="Redux">
+                        <div className="tech-icons-cont">
+                            <img src={reduxIcon} alt="reduxIcon" />
+                        </div>
+                    </Tooltip>
+                    <Tooltip placement="bottom" title="NodeJS">
+                        <div className="tech-icons-cont">
+                            <img src={nodeIcon} alt="nodeIcon" />
+                        </div>
+                    </Tooltip>
+                    <Tooltip placement="bottom" title="ExpressJS">
+                        <div className="tech-icons-cont">
+                            <img src={expreeIcon} alt="expreeIcon" />
+                        </div>
+                    </Tooltip>
+                    <Tooltip placement="bottom" title="MongoDB">
+                        <div className="tech-icons-cont">
+                            <img src={mongoIcon} alt="mongoIcon" />
+                        </div>
+                    </Tooltip>
+                    <Tooltip placement="bottom" title="Firebase">
+                        <div className="tech-icons-cont">
+                            <img src={firebaseIcon} alt="antIcon" />
+                        </div>
+                    </Tooltip>
+                    <Tooltip placement="bottom" title="Bootstrap">
+                        <div className="tech-icons-cont">
+                            <img src={bootstrapIcon} alt="bootstrapIcon" />
+                        </div>
+                    </Tooltip>
+                    <Tooltip placement="bottom" title="Ant-Design">
+                        <div className="tech-icons-cont">
+                            <img src={antIcon} alt="antIcon" />
+                        </div>
+                    </Tooltip>
+                </div>
+            </div>{" "}
+            <div className="steps tech-cont ">
+                <h3 className="pb-0">About Project</h3>
+                <p>This Project is developed by Saurabh Burade</p>
+                <div className="d-flex align-items-center justify-content-center">
+                    <a
+                        href="https://github.com/saurabhburade/Chat-App"
+                        target="_blank"
+                    >
+                        <AntButton
+                            type="primary"
+                            shape="round"
+                            icon={<GithubOutlined />}
+                            size="large"
+                            style={{background: "black"}}
+                        >
+                            Go to GitHub Project
+                        </AntButton>
+                    </a>
+                </div>
             </div>
+            {/* import reactIcon from "../../assets/reactjs.svg" import reduxIcon
+            from "../../assets/redux.svg"; import nodeIcon from
+            "../../assets/nodejs.svg"; import expreeIcon from
+            "../../assets/express.svg"; import mongoIcon from
+            "../../assets/mongo.svg"; import bootstrapIcon from
+            "../../assets/bootstrap.svg"; import antIcon from
+            "../../assets/ant.svg"; */}
             {/* <h1>Hello</h1>
             <img className="hero-image" src={image} alt="" /> */}
         </div>
