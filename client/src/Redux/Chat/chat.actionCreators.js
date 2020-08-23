@@ -9,7 +9,7 @@ import Axios from "axios";
 export const fetchChats = () => {
     return dispatch => {
         console.log("chats");
-        Axios.get("http://localhost:8000/api/user", {
+        Axios.get("/api/user", {
             headers: {
                 token: localStorage.getItem("token"),
                 "Content-Type": "application/json",
@@ -52,7 +52,7 @@ export function setChatActiveUser(payload) {
 export function fetchUser() {
     return dispatch => {
         console.log("chats");
-        Axios.get("http://localhost:8000/api/user", {
+        Axios.get("/api/user", {
             headers: {
                 token: localStorage.getItem("token"),
                 "Content-Type": "application/json",
@@ -75,7 +75,7 @@ function fetchUserSuccess(payload) {
 }
 export function addChat(payload) {
     return dispatch => {
-        Axios.post("http://localhost:8000/api/chat/add",{chat:payload}, {
+        Axios.post("/api/chat/add",{chat:payload}, {
             headers: {
                 token: localStorage.getItem("token"),
                 "Content-Type": "application/json",

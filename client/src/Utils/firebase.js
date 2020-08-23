@@ -1,16 +1,28 @@
-import firebase from "firebase"
+import firebase from "firebase";
+const {
+    REACT_APP_FIREBASE_CONFIGS_apiKey,
+REACT_APP_FIREBASE_CONFIGS_authDomain,
+REACT_APP_FIREBASE_CONFIGS_databaseURL,
+REACT_APP_FIREBASE_CONFIGS_projectId,
+REACT_APP_FIREBASE_CONFIGS_storageBucket,
+REACT_APP_FIREBASE_CONFIGS_messagingSenderId,
+REACT_APP_FIREBASE_CONFIGS_appId,
+REACT_APP_FIREBASE_CONFIGS_measurementId,
+} = process.env;
+
+console.log(process.env);
 const firebaseConfig = {
-    apiKey: "AIzaSyDgfCdKbVc8blDf_gUSbJMLMPkoS1Aw360",
-    authDomain: "slack-clone-test1.firebaseapp.com",
-    databaseURL: "https://slack-clone-test1.firebaseio.com",
-    projectId: "slack-clone-test1",
-    storageBucket: "slack-clone-test1.appspot.com",
-    messagingSenderId: "589618908573",
-    appId: "1:589618908573:web:9ab03f58c5c4f39821b374",
-    measurementId: "G-VR3KL3PVVC",
+    apiKey: REACT_APP_FIREBASE_CONFIGS_apiKey,
+    authDomain: REACT_APP_FIREBASE_CONFIGS_authDomain,
+    databaseURL: REACT_APP_FIREBASE_CONFIGS_databaseURL,
+    projectId: REACT_APP_FIREBASE_CONFIGS_projectId,
+    storageBucket: REACT_APP_FIREBASE_CONFIGS_storageBucket,
+    messagingSenderId: REACT_APP_FIREBASE_CONFIGS_messagingSenderId,
+    appId: REACT_APP_FIREBASE_CONFIGS_appId,
+    measurementId: REACT_APP_FIREBASE_CONFIGS_measurementId,
 };
 const firebaseApp = firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore()
-export const storage=firebase.storage()
+const db = firebase.firestore();
+export const storage = firebase.storage();
 
-export  default db
+export default db;

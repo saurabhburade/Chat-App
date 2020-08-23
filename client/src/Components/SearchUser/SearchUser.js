@@ -17,7 +17,7 @@ const SearchUser = ({chatList, user, chatAdd}) => {
         console.log(value);
         if (EmailValidator.validate(value)) {
             axios
-                .get("http://localhost:8000/api/all-users", {
+                .get("/api/all-users", {
                     headers: {
                         token: localStorage.getItem("token"),
                         "Content-Type": "application/json",
