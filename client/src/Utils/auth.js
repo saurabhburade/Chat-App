@@ -1,13 +1,12 @@
-import {axios} from "axios";
+import Axios from "axios";
 
 export const login = data => {
     console.log(data);
-    axios
-        .post("/api/login", data, {
-            headers: {
-                "Content-type": "application/json",
-            },
-        })
+    Axios.post("/api/login", data, {
+        headers: {
+            "Content-type": "application/json",
+        },
+    })
         .then(res => {
             console.log(res);
             localStorage.setItem("token", res.data.token);
@@ -22,12 +21,11 @@ export const login = data => {
 
 export const signup = data => {
     console.log(data);
-    axios
-        .post("/api/register", data, {
-            headers: {
-                "Content-type": "application/json",
-            },
-        })
+    Axios.post("/api/register", data, {
+        headers: {
+            "Content-type": "application/json",
+        },
+    })
         .then(res => {
             console.log(res);
             localStorage.setItem("token", res.data.token);

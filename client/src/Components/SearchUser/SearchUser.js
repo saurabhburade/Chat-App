@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {Input, AutoComplete, notification} from "antd";
 import {UserOutlined} from "@ant-design/icons";
 import "./searchUser.css";
-import axios from "axios";
+import Axios from "axios";
 import * as EmailValidator from "email-validator";
 import Modal from "antd/lib/modal/Modal";
 import {connect} from "react-redux";
@@ -16,14 +16,13 @@ const SearchUser = ({chatList, user, chatAdd}) => {
     const handleSearch = value => {
         console.log(value);
         if (EmailValidator.validate(value)) {
-            axios
-                .get("/api/all-users", {
-                    headers: {
-                        token: localStorage.getItem("token"),
-                        "Content-Type": "application/json",
-                        email: value,
-                    },
-                })
+            Axios.get("/api/all-users", {
+                headers: {
+                    token: localStorage.getItem("token"),
+                    "Content-Type": "application/json",
+                    email: value,
+                },
+            })
                 .then(res => {
                     console.log(res); //TODO res without token
                     setSearchedUser(res.data);
