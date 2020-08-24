@@ -1,7 +1,5 @@
 .chat-container {
-    /* width: auto; */
     min-height: 85vh;
-    /* margin: 2% 10%; */
     display: flex;
     justify-content: stretch;
     padding: 0% 8%;

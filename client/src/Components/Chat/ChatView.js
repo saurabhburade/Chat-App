@@ -2,7 +2,6 @@ import React, {useRef} from "react";
 import "./chatView.css";
 import Avatar from "antd/lib/avatar/avatar";
 import MessageCard from "./MessageCard";
-import Search from "antd/lib/input/Search";
 import {SendOutlined} from "@ant-design/icons";
 import {Input, Progress} from "antd";
 import {Button} from "react-bootstrap";
@@ -11,7 +10,6 @@ import chatImage from "../../assets/undraw_status_update_jjgk.svg";
 import {useEffect} from "react";
 import db from "../../Utils/firebase";
 import {useState} from "react";
-import PicturesWall from "../ImageUpload/ImageUpload";
 import firebase from "firebase";
 var b64toBlob = require("b64-to-blob");
 
@@ -110,16 +108,13 @@ function ChatView({activeChat, user}) {
                     snapShot => {
                         //takes a snap shot of the process as it is happening
                         console.log(snapShot);
-                        // {bytesTransferred: 0, totalBytes: 21118, state: "running", metadata: null, task: UploadTask,}
-                        
                     setPercent(
                         parseInt(
                             (snapShot.bytesTransferred * 100) /
                                 snapShot.totalBytes
                         )
                     );
-                    console.log((snapShot.bytesTransferred * 100) / snapShot.totalBytes
-                    );
+                   
                     },
                     err => {
                         //catches the errors
@@ -133,10 +128,6 @@ function ChatView({activeChat, user}) {
                             .child(date + "_" + file.name)
                             .getDownloadURL()
                             .then(fireBaseUrl => {
-                                // setImageAsUrl(prevObject => ({
-                                //     ...prevObject,
-                                //     imgUrl: fireBaseUrl,
-                                // }));
                                 console.log(fireBaseUrl);
                                 setAttachment({
                                     type: file.type,

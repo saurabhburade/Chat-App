@@ -38,11 +38,6 @@ function fetchChatsFail() {
     };
 }
 
-// export function setChatUser(payload) {
-//     return dispatch => {
-
-//     };
-// }
 export function setChatActiveUser(payload) {
     return {
         type: SET_CHAT_ACTIVE_USER,
@@ -75,12 +70,16 @@ function fetchUserSuccess(payload) {
 }
 export function addChat(payload) {
     return dispatch => {
-        Axios.post("/api/chat/add",{chat:payload}, {
-            headers: {
-                token: localStorage.getItem("token"),
-                "Content-Type": "application/json",
-            },
-        })
+        Axios.post(
+            "/api/chat/add",
+            {chat: payload},
+            {
+                headers: {
+                    token: localStorage.getItem("token"),
+                    "Content-Type": "application/json",
+                },
+            }
+        )
             .then(user => {
                 console.log(user);
                 dispatch(fetchChats());

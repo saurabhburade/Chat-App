@@ -17,7 +17,6 @@ function App(props) {
         <Router>
             <div className="App">
                 <Header />
-                {/* <Chat /> */}
                 <Switch>
                     <Route path="/login" exact component={Login} />
                     <Route path="/" exact component={Home} />

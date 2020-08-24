@@ -1,42 +1,36 @@
 .login-container {
     display: flex;
-    height:50em;
+    height: 50em;
     justify-content: center;
     align-items: center;
     background-color: azure;
     padding: 0% 10%;
-    justify-content:space-between;
-    
+    justify-content: space-between;
 }
 .form {
     background-color: rgb(255, 255, 255);
-    /* border: 1px solid gainsboro; */
     padding: 0% 5%;
     padding-bottom: 2%;
     font-weight: 600;
-    /* border-radius: 5px;
-    box-shadow: 0px 1px 20px rgb(231, 231, 231); */
 }
 .form > div {
-    /* background-color: aqua; */
     margin: 10% 0%;
 }
-.loginImage{
-    width:40em;
+.loginImage {
+    width: 40em;
 }
 
-@media(max-width:700px){
+@media (max-width: 700px) {
     .login-container {
-    display: flex;
-    height:40em;
-    justify-content: center;
-    align-items: center;
-    background-color: azure;
-    padding: 0% 10%;
-    justify-content:space-between;
-    
-}
-.loginImage{
-    display: none;
-}
+        display: flex;
+        height: 40em;
+        justify-content: center;
+        align-items: center;
+        background-color: azure;
+        padding: 0% 10%;
+        justify-content: space-between;
+    }
+    .loginImage {
+        display: none;
+    }
 }

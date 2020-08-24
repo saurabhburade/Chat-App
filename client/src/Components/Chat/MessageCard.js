@@ -24,10 +24,7 @@ function MessageCard({username, content, user, attachment}) {
                         ? "usermessage"
                         : null
                 }`}
-
-                // style={{(user.fname+" "+ user.lname===username)? fontSize:null}}
-                // {(user.fname+" "+ user.lname===username)? `style={{fontWeight:700}}` : null}
-            >
+>
                 <p>{username}</p>
                 <p>{content || ""}</p>
                 {attachment?.type &&

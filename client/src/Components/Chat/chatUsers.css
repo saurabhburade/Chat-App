@@ -2,10 +2,8 @@
     width: 40em;
     overflow: hidden;
     background-color: rgba(250, 250, 250, 0.849);
-    /* padding: 2%; */
 }
 .chat-users-main > div:nth-child(1) {
-    /* height:70px; */
     border-bottom: 1px solid gainsboro;
     display: flex;
     align-items: center;
@@ -13,13 +11,10 @@
 }
 
 .chat-users-container {
-    /* width: 30em; */
     height: 90%;
     padding: 5%;
     padding-top: 2%;
-    /* margin: 2%; */
     overflow: scroll;
-    /* background-color: black; */
     overflow-x: hidden;
     -webkit-appearance: none;
 }

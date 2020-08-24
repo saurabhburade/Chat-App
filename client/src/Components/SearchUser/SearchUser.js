@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import {Input, AutoComplete, notification} from "antd";
-import {UserOutlined} from "@ant-design/icons";
 import "./searchUser.css";
 import Axios from "axios";
 import * as EmailValidator from "email-validator";
@@ -78,9 +77,8 @@ const SearchUser = ({chatList, user, chatAdd}) => {
                     type: "personal",
                     user: searchedUser._id,
                     title: searchedUser.username,
-                })
-            setShowModal(false);
-                
+                });
+                setShowModal(false);
             })
             .catch(err => {
                 console.log("err");

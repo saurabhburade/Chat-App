@@ -32,10 +32,6 @@ export default (state = INITIAL_STATE, action) => {
                 ...state,
                 user:action.payload
             };
-        // case FETCH_CHATS_FAIL:
-        //     return {
-        //         ...state,
-        //     };
         default:
             return state;
     }

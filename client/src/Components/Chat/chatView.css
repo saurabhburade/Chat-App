@@ -8,10 +8,8 @@
 }
 
 .chat-view-head {
-    /* background-color: rgb(234, 251, 255); */
     background-color: rgba(250, 250, 250, 0.849);
     padding: 2% 5%;
-    /* text-align: center; */
     display: flex;
     align-items: center;
     font-weight: 600;

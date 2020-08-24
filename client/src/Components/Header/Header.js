@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import "./Header.css";
 import {BrowserRouter as Router, Route, Link} from "react-router-dom";
-import {LoginOutlined} from "@ant-design/icons";
 
 import {Input, Button} from "antd";
 import {isAuth} from "../../Utils/auth";
@@ -28,12 +27,7 @@ function Header() {
                 <p>LOGO 🚀 </p>
             </div>
             <div className="nav-links">
-                {/* <Search
-                    placeholder="input search text"
-                    size="medium"
-                    onSearch={value => console.log(value)}
-                    enterButton
-                /> */}
+
                 <Link className="navLink" to={"/"}>
                     Home
                 </Link>
@@ -61,7 +55,6 @@ function Header() {
                     </>
                 )}
 
-                {/* <Link to={"/login"}>Login</Link> */}
             </div>
         </div>
     );

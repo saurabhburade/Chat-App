@@ -94,11 +94,6 @@ function Home() {
                                 </p>
                             }
                         />
-                        {/* <Step
-                        status="finish"
-                        title="Waiting"
-                        description="This is a description."
-                    /> */}
                     </Steps>
                     <div>
                         <img

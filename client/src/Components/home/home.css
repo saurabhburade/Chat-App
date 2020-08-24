@@ -2,13 +2,8 @@
     width: 100%;
     position: relative;
     min-height: 90vh;
-    /* background: rgb(101, 114, 230); */
     border-radius: 0px 0px 100px 100px;
     background: rgba(245, 245, 245, 0.774);
-
-    /* padding: 0% 10%; */
-    /* clip-path: ellipse(100,100,50,50); */
-    /* clip-path: ellipse(1 1 1 1); */
 }
 .hero-container {
     height: 90vh;
@@ -19,27 +14,17 @@
     justify-content: space-between;
     align-items: center;
     background: url("../../assets/wave.svg") no-repeat;
-    /* background-size: 100em; */
     background-position: 0% 120%;
 }
 .hero-image-cont {
-    /* width: 100%; */
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 .hero-image {
     width: 35em;
-    /* box-shadow: 0px 1px 50px rgb(80, 80, 80); */
-    /* transform: rotate(-40deg);
-    border-radius: 5px;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    z-index: 99; */
 }
 .hero-text > p:nth-child(1) {
-    /* background: orange; */
     padding: 0em;
     margin: 0em;
     font-weight: 800;
@@ -47,7 +32,6 @@
 }
 
 .hero-text > p:nth-child(2) {
-    /* background: orange; */
     width: 40em;
     padding: 0em;
     margin: 0em;
@@ -59,8 +43,6 @@
     width: 100%;
     background: white;
     text-align: center;
-    /* display: flex;
-    justify-content: center; */
     padding: 0% 10% 5% 10%;
 }
 .steps > h3 {
@@ -81,7 +63,6 @@
 }
 .tech-icons-cont {
     width: 10em;
-    /* background: orange; */
     margin: 0% 2%;
 }
 .tech-icons-cont > img {
@@ -96,7 +77,6 @@
 }
 @media (max-width: 700px) {
     .hero-image-cont {
-        /* width: 100%; */
         display: none;
     }
     .hero-container {
@@ -109,13 +89,12 @@
         align-content: center;
     }
     .hero-text > p:nth-child(1) {
-        /* background: orange; */
         padding: 0em;
         margin: 0em;
         font-weight: 800;
         font-size: 2em;
-    }    .hero-text > p:nth-child(2) {
-        /* background: orange; */
+    }
+    .hero-text > p:nth-child(2) {
         width: 100%;
         padding: 2%;
         margin: 0em;
@@ -126,16 +105,14 @@
         width: auto;
         text-align: center;
     }
-    .action-btns{
-        transform:scale(0.9);
+    .action-btns {
+        transform: scale(0.9);
         padding: 0px;
-  
-        
     }
     .chat-screen {
-    width: 60em;
-    box-shadow: 0px 1px 50px rgb(240, 240, 240);
-    border-radius: 5px;
-    display: none;
-}
+        width: 60em;
+        box-shadow: 0px 1px 50px rgb(240, 240, 240);
+        border-radius: 5px;
+        display: none;
+    }
 }

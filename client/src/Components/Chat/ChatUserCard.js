@@ -1,7 +1,6 @@
 import React from "react";
 import "./chatUserCard.css";
 import Avatar from "antd/lib/avatar/avatar";
-import {UserOutlined} from "@ant-design/icons";
 import { connect } from 'react-redux';
 import { setChatActiveUser } from './../../Redux/Chat/chat.actionCreators';
 
