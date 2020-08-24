@@ -1,8 +1,13 @@
-.chat-container{
+.chat-container {
     /* width: auto; */
-    max-height: 85vh;
+    min-height: 85vh;
     /* margin: 2% 10%; */
     display: flex;
     justify-content: stretch;
     padding: 0% 8%;
+}
+@media (max-width: 700px) {
+    .chat-container {
+        flex-wrap: wrap;
+    }
 }
