@@ -15,10 +15,7 @@ This app is currently under development.
 
   `ReactJS` `ReduxJS` `NodeJS` `MongoDB` `Firebase` `ExpressJS` `Ant-Design` `Bootstrap`
 
-<div class="d-flex" style="    width:100%;
-        display:flex;
-        justify-content:space-between;
-        flex-wrap:wrap">
+<div class="d-flex" style="width:100%;display:flex;justify-content:space-between;flex-wrap:wrap">
 <img  src="./client/src/assets/reactjs.svg" class="logos" style=" width:4em;
     filter: grayscale();"/>
 <img  src="./client/src/assets/redux.svg" class="logos" style=" width:4em;
