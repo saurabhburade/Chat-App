@@ -10,7 +10,6 @@ import {Redirect} from "react-router-dom";
 function SignUp() {
     const handleSignUp = e => {
         e.preventDefault();
-        console.log("login", e.target.email.value);
         const data = {
             fname: e.target.fname.value,
             lname: e.target.lname.value,
@@ -18,7 +17,6 @@ function SignUp() {
             confPassword: e.target.confPassword.value,
             password: e.target.password.value,
         };
-        console.log(data);
         if (
             !!data.fname.trim() &&
             !!data.lname.trim() &&

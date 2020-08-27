@@ -10,7 +10,6 @@ REACT_APP_FIREBASE_CONFIGS_appId,
 REACT_APP_FIREBASE_CONFIGS_measurementId,
 } = process.env;
 
-console.log(process.env);
 const firebaseConfig = {
     apiKey: REACT_APP_FIREBASE_CONFIGS_apiKey,
     authDomain: REACT_APP_FIREBASE_CONFIGS_authDomain,

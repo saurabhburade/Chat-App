@@ -13,7 +13,6 @@ const SearchUser = ({chatList, user, chatAdd}) => {
     const [showModal, setShowModal] = useState(false);
     const [searchedUser, setSearchedUser] = useState({});
     const handleSearch = value => {
-        console.log(value);
         if (EmailValidator.validate(value)) {
             Axios.get("/api/all-users", {
                 headers: {
@@ -23,7 +22,6 @@ const SearchUser = ({chatList, user, chatAdd}) => {
                 },
             })
                 .then(res => {
-                    console.log(res); //TODO res without token
                     setSearchedUser(res.data);
                     setOptions([{value: res.data.username}]);
                 })
@@ -38,11 +36,9 @@ const SearchUser = ({chatList, user, chatAdd}) => {
         setShowModal(false);
     };
     const handleSelect = () => {
-        console.log(options, chatList);
         const present = chatList.find(element => {
             return options[0].value === element.title;
         });
-        console.log(present);
         if (present) {
             notification["info"]({
                 message: "Notification",
@@ -53,8 +49,6 @@ const SearchUser = ({chatList, user, chatAdd}) => {
         }
     };
     const handleCreateChat = () => {
-        console.log("create chat");
-        console.log(searchedUser);
         const keyRef = db.collection("chat-test").doc();
 
         Promise.all([
@@ -71,7 +65,6 @@ const SearchUser = ({chatList, user, chatAdd}) => {
             }),
         ])
             .then(value => {
-                console.log(value, keyRef.id);
                 chatAdd({
                     id: keyRef.id,
                     type: "personal",

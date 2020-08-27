@@ -8,7 +8,6 @@ import Axios from "axios";
 
 export const fetchChats = () => {
     return dispatch => {
-        console.log("chats");
         Axios.get("/api/user", {
             headers: {
                 token: localStorage.getItem("token"),
@@ -16,7 +15,6 @@ export const fetchChats = () => {
             },
         })
             .then(user => {
-                console.log(user);
                 dispatch(fetchChatsSuccess(user.data.chats));
             })
             .catch(err => {
@@ -46,7 +44,6 @@ export function setChatActiveUser(payload) {
 }
 export function fetchUser() {
     return dispatch => {
-        console.log("chats");
         Axios.get("/api/user", {
             headers: {
                 token: localStorage.getItem("token"),
@@ -54,7 +51,6 @@ export function fetchUser() {
             },
         })
             .then(user => {
-                console.log(user);
                 dispatch(fetchUserSuccess(user.data));
             })
             .catch(err => {
@@ -81,7 +77,6 @@ export function addChat(payload) {
             }
         )
             .then(user => {
-                console.log(user);
                 dispatch(fetchChats());
             })
             .catch(err => {

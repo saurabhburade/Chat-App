@@ -23,34 +23,28 @@ function ChatView({activeChat, user}) {
     const handleMessageChange = e => {
         setMessage(e.target.value);
     };
-    const sendMessage =  e => {
-        console.log(
-            "e",
-            message,
-            (!!message || !!( attachment.url)) && activeChat?.id
-        );
-        if ((!!message || !!( attachment.url)) && activeChat?.id) {
+    const sendMessage = e => {
+        if ((!!message || !!attachment.url) && activeChat?.id) {
             const date = new Date().toString();
-            console.log(date);
             const keyRef = db
                 .collection("chat-test")
                 .doc(activeChat?.id)
                 .collection("messages_data")
                 .doc();
-            keyRef.set({
-                username: user.fname + " " + user.lname,
-                content: message,
-                time: date,
-                attachment,
-            }).then(d=>{
-                 setMessage("");
-                 setUploadFile(null);
-                 setAttachment({})
-                 setPercent(0)
-            })
-           
+            keyRef
+                .set({
+                    username: user.fname + " " + user.lname,
+                    content: message,
+                    time: date,
+                    attachment,
+                })
+                .then(d => {
+                    setMessage("");
+                    setUploadFile(null);
+                    setAttachment({});
+                    setPercent(0);
+                });
         }
-
     };
     useEffect(() => {
         if (activeChat?.id) {
@@ -64,7 +58,6 @@ function ChatView({activeChat, user}) {
                             return new Date(a.time) - new Date(b.time);
                         });
                     setMessagesData(sortedArray);
-                    console.log(sortedArray);
                 });
         }
     }, [activeChat]);
@@ -95,26 +88,22 @@ function ChatView({activeChat, user}) {
         reader.addEventListener(
             "load",
             () => {
-                console.log(reader.result, btoa(reader.result));
                 const blob = b64toBlob(btoa(reader.result), "image/jpeg");
                 const storageRef = firebase
                     .storage()
                     .ref(`/images/${date + "_" + file.name}`);
-                console.log(storageRef, blob);
                 const uploadTask = storageRef.put(file);
                 //initiates the firebase side uploading
                 uploadTask.on(
                     "state_changed",
                     snapShot => {
                         //takes a snap shot of the process as it is happening
-                        console.log(snapShot);
-                    setPercent(
-                        parseInt(
-                            (snapShot.bytesTransferred * 100) /
-                                snapShot.totalBytes
-                        )
-                    );
-                   
+                        setPercent(
+                            parseInt(
+                                (snapShot.bytesTransferred * 100) /
+                                    snapShot.totalBytes
+                            )
+                        );
                     },
                     err => {
                         //catches the errors
@@ -128,7 +117,6 @@ function ChatView({activeChat, user}) {
                             .child(date + "_" + file.name)
                             .getDownloadURL()
                             .then(fireBaseUrl => {
-                                console.log(fireBaseUrl);
                                 setAttachment({
                                     type: file.type,
                                     url: fireBaseUrl,
@@ -139,7 +127,6 @@ function ChatView({activeChat, user}) {
             },
             false
         );
-        console.log(reader.result, file);
         reader.readAsDataURL(file);
     };
     return (
@@ -165,8 +152,13 @@ function ChatView({activeChat, user}) {
 
             <div className="chat-view-foot">
                 <div className="uploader d-flex">
-                    <input type="file"  onChange={handleFileChange} />
-                    {percent && <Progress percent={percent}  status={percent===100?null:"active"} />}
+                    <input type="file" onChange={handleFileChange} />
+                    {percent && (
+                        <Progress
+                            percent={percent}
+                            status={percent === 100 ? null : "active"}
+                        />
+                    )}
                 </div>
                 <div className="d-flex">
                     <Input

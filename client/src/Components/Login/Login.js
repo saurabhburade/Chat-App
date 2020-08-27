@@ -8,7 +8,6 @@ import { Redirect } from 'react-router-dom';
 function Login() {
     const handleLogin = e => {
         e.preventDefault();
-        console.log("login", e.target.email.value);
         const data = {
             email: e.target.email.value,
             password: e.target.password.value,

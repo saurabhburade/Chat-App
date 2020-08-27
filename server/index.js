@@ -16,7 +16,6 @@ mongoose.connect(uri, {useUnifiedTopology: true, dbName}, err => {
         console.log("Mongoose conection : connected 🔥");
     }
 });
-console.log(uri);
 app.use(express.json());
 
 app.use(cors());

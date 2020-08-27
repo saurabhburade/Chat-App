@@ -4,11 +4,8 @@ const jwt = require("jsonwebtoken");
 
 const register = (req, res) => {
     const {fname, lname, email, password} = req.body;
-    console.log(req.body);
     const hash = bcrypt.hashSync(password, 10);
     const token = jwt.sign(email, process.env.JWT_SECRET);
-    console.log("hash", hash);
-    console.log("jwt", token);
     User.findOne({email})
         .then(doc => {
             if (doc) {
@@ -22,13 +19,11 @@ const register = (req, res) => {
                     password: hash,
                     chats: [],
                 });
-                console.log(newUser);
                 newUser
                     .save()
                     .then(user => {
                         user.password = "";
                         res.status(200).json(user);
-                        console.log(user);
                     })
                     .catch(err => {
                         console.log(err);
@@ -46,7 +41,6 @@ const login = (req, res) => {
     const {email, password} = req.body;
     User.findOne({email})
         .then(doc => {
-            console.log("dc", doc);
             if (doc) {
                 const match = bcrypt.compareSync(password, doc.password);
                 if (match) {
@@ -67,10 +61,8 @@ const login = (req, res) => {
 
 const allUsers = (req, res) => {
     const {email} = req.headers;
-    console.log(req.body, req.headers);
     User.findOne({email})
         .then(doc => {
-            console.log(doc);
             res.status(200).json({
                 username: doc.fname + " " + doc.lname,
                 email,
@@ -103,18 +95,14 @@ const fetchUser = (req, res) => {
 const addChat = (req, res) => {
     const {token} = req.headers;
     const {chat} = req.body;
-    console.log(req.body);
     Promise.all([User.findOne({token}), User.findOne({_id: chat.user})])
 
         .then(docs => {
-            console.log("###################################", docs);
             if (!!docs) {
-                // console.log(doc);
                 docs.forEach((doc, index) => {
                     const present = doc.chats.find(element=> {
                         return element.id === chat.id;
                     });
-                    console.log(present);
                     if (!present) {
                         if (index === 0 && chat.type == "personal") {
                             chat.title = docs[1].fname + " " + docs[1].lname;

@@ -9,8 +9,6 @@ import {fetchChats} from "./../../Redux/Chat/chat.actionCreators";
 function ChatUsers(props) {
     useEffect(() => {
         props.fetchChats();
-        console.log("object", props.chatList);
-      
     }, []);
     return (
         <div className="chat-users-main">
